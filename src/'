@@ -1,0 +1,21 @@
+
+require('dotenv').config(`${__dirname}/../.env`)
+
+import {put} from 'redux-saga/effects' 
+import {doSignupRequest} from '../store/saga/auth.js'
+
+let mock = {
+  username: 'slugbyte', 
+  email: 'slugbyte@slugbyte.com',
+  password: 'helloworld', 
+  firstName: 'slug', 
+  lastName: 'byte',
+}
+
+
+describe('auth-saga', () => {
+  test('doSignupRequest', function () {
+    let  gen = doSignupRequest(mock)
+    console.log('next  val', gen.next().value )
+  })
+})
