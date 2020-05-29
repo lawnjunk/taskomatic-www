@@ -10,6 +10,7 @@ export const isDate = (data) => data instanceof Date
 export const isArray = (data) => data instanceof Array
 export const isSet = (data) => data instanceof Set
 export const isMap = (data) => data instanceof Map
+export const isError = (data) => data instanceof Error
 export const isPromise = (data) => data instanceof Promise
 export const isEmail = (data) => isString(data) && new RegExp(/\S+@\S+\.\S+/).test(data)
 
