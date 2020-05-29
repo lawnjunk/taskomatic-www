@@ -4,7 +4,7 @@ import {
   spawnSignupRequest 
 } from './auth.js'
 
-export default function root*(){
+export default function* root(){
   yield all([
     spawnSignupRequest,
   ])

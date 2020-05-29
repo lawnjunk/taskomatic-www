@@ -14,15 +14,22 @@ export const offline = createAction(offline)
 // async
 export const SIGNUP_REQUEST = 'SIGNUP_REQUEST'
 export const LOGIN_REQUEST = 'LOGIN_REQUEST'
+export const UPDATE_PASSWORD_REQUEST = 'UPDATE_PASSWORD'
 export const signupRequest = createAction(SIGNUP_REQUEST)
 export const loginRequest = createAction(LOGIN_REQUEST)
+export const updatePasswordRequest = createAction(UPDATE_PASSWORD_REQUEST)
+
 // sync
-export const AUTH_ERROR = 'AUTH_ERROR'
-export const SET_TOKEN = 'SET_TOKEN'
 export const LOGOUT = 'LOGOUT'
+export const SET_TOKEN = 'SET_TOKEN'
+export const AUTH_ERROR = 'AUTH_ERROR'
+export const SET_UPDATE_PASSWORD_SUCCESS = 'SET_UPDATE_PASSWORD_SUCCESS'
+export const logout = createAction(LOGOUT)
 export const setToken = createAction(SET_TOKEN)
 export const authError = createAction(AUTH_ERROR)
-export const logout = createAction(LOGOUT)
+export const setUpdatePasswordSuccess = createAction(SET_UPDATE_PASSWORD_SUCCESS)
+
+
 
 // userProfile
 // async
