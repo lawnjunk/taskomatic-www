@@ -50,3 +50,16 @@ export const doUpdateUserProfileRequest = function* ({token, profile}) {
   }
 }
 
+export const spawnFetchAllProfilesRequest = function* () {
+  yield takeEvery(FETCH_ALL_PROFILES_REQUEST, doFetchAllProfilesRequest)
+}
+
+export const spawnFetchUserProfileRequest = function* () {
+  yield takeEvery(FETCH_USER_PROFILE_REQUEST, doFetchUserProfileRequest)
+}
+
+export const spawnUpdateUserProfileRequest = function* () {
+  yield takeEvery(UPDATE_USER_PROFILE_REQUEST, doUpdateUserProfileRequest)
+}
+
+

@@ -43,3 +43,15 @@ export const doUpdateTaskRequest = function* ({token, task}) {
   }
 }
 
+export const spawnFetchTasksRequset = function* (){
+  yield takeEvery(FETCH_TASKS_REQUEST, doFetchTasksRequest)
+}
+
+export const spawnCreateTaskRequest = function* (){
+  yield takeEvery(CREATE_TASK_REQUEST, doCreateTaskRequest)
+}
+
+export const spawnUpdateTaskRequest = function* (){
+  yield takeEvery(UPDATE_TASK_REQUEST, doUpdateTaskRequest)
+}
+
