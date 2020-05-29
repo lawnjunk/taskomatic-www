@@ -54,10 +54,12 @@ export const setAllProfiles= createAction(SET_ALL_PROFILES)
 // ### fetchTasks
 //async 
 export const FETCH_TASKS_REQUEST = 'FETCH_TASKS_REQUEST'
-export const fetchTasksRequet = createAction(FETCH_TASKS_REQUEST)
+export const fetchTasksRequest = createAction(FETCH_TASKS_REQUEST)
 // sync 
-export const SET_USER_TASKS = 'SET_USER_TASKS'
-export const setUserTasks = createAction(SET_USER_TASKS)
+export const SET_TASKS = 'SET_TASKS'
+export const SET_TASKS_ERROR= 'SET_TASKS_ERROR'
+export const setTasks = createAction(SET_TASKS)
+export const setTasksError = createAction(SET_TASKS_ERROR)
 
 // ### createTask
 //async 

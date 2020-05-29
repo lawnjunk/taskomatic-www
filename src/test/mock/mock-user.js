@@ -14,12 +14,9 @@ export const mockUser = async () => {
   let input = mockUserInput()
   let {body} = await request.post(API_URL + '/auth')
     .send(input)
-
   let token = body.token
-
   let {body:profile} = await(request.get(API_URL + '/profile/self'))
     .set('Authorization', 'Bearer ' + token)
-
   return {input, token, profile}
 }
 
