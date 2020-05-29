@@ -1,48 +1,49 @@
+// external deps
 import request from 'superagent'
 import {takeEvery, put} from 'redux-saga/effects'
+import {API_URL} from '@env'
 
+// internal modules
 import  {
   setToken, 
-  authError,
+  setAuthError,
   setUpdatePasswordSuccess,
   SIGNUP_REQUEST,
   LOGIN_REQUEST,
   UPDATE_PASSWORD_REQUEST,
-  SET_UPDATE_PASSWORD_SUCCESS,
 } from '../action'
 
-// NOTE: authURL can't be a constant because babel evals
-// the file before the enviroment is configured
-const authURL = () => process.env.API_URL + '/auth'
+// module consants
+const authURL = API_URL + '/auth'
 
+// interface
 export const doSignupRequest = function* (userData){
   try {
-    console.log({userData})
-    const res = yield request.post(authURL()).send(userData)
+    const res = yield request.post(authURL).send(userData)
     yield put(setToken(res.body.token))
   } catch (e) {
-    yield put(authError(e))
+    yield put(setAuthError(e))
   }
 }
 
 export const doLoginRequest = function* ({email, password}){
   try {
-    const res = yield request.get(authURL()).auth(email, password)
+    const res = yield request.get(authURL).auth(email, password)
     yield put(setToken(res.body.token))
   } catch (e) {
-    console.log('foo')
-    yield put(authError(e))
+    yield put(setAuthError(e))
   }
 }
 
 export const doUpdatePasswordRequest = function* ({token, password}) {
   try {
-    const res = yield request.put(authURL())
+    const res = yield request.put(authURL)
       .set('Authorization', 'Bearer ' + token)
       .send({password})
+    // TODO: is true enough data for the UI?
     yield put(setUpdatePasswordSuccess(true))
   } catch (e) {
-    yield put(authError(e))
+    yield put(setAuthError(e))
   }
 }
 

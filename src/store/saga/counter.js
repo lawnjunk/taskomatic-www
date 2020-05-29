@@ -10,8 +10,6 @@ import {
 const delay = (ms) => new Promise(res => setTimeout(res, ms))
 
 export const incramentAsync = function* (){
-  //let action = yeild take(INC_ASYNC)
-  //console.log('yielded', {action})
   yield delay(500)
   yield put(inc(2))
 }
@@ -26,7 +24,6 @@ function* spawnIncAsync () {
 }
 
 function* spawnDecAsync() {
-  console.log('boom')
   yield takeEvery(DEC_ASYNC, decramentAsync)
 }
 

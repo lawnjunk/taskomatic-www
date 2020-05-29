@@ -22,22 +22,25 @@ export const updatePasswordRequest = createAction(UPDATE_PASSWORD_REQUEST)
 // sync
 export const LOGOUT = 'LOGOUT'
 export const SET_TOKEN = 'SET_TOKEN'
-export const AUTH_ERROR = 'AUTH_ERROR'
+export const SET_AUTH_ERROR = 'SET_AUTH_ERROR'
 export const SET_UPDATE_PASSWORD_SUCCESS = 'SET_UPDATE_PASSWORD_SUCCESS'
 export const logout = createAction(LOGOUT)
 export const setToken = createAction(SET_TOKEN)
-export const authError = createAction(AUTH_ERROR)
+export const setAuthError = createAction(SET_AUTH_ERROR)
 export const setUpdatePasswordSuccess = createAction(SET_UPDATE_PASSWORD_SUCCESS)
-
 
 
 // userProfile
 // async
 export const FETCH_USER_PROFILE_REQUEST = 'FETCH_USER_PROFILE_REQUEST'
+export const UPDATE_USER_PROFILE_REQUEST = 'UPDATE_USER_PROFILE_REQUEST'
 export const fetchUserProfileRequest = createAction(FETCH_USER_PROFILE_REQUEST)
+export const updateUserProfileRequest = createAction(UPDATE_USER_PROFILE_REQUEST)
 // sync
 export const SET_USER_PROFILE = 'SET_USER_PROFILE'
+export const SET_USER_PROFILE_ERROR = 'SET_USER_PROFILE_ERROR'
 export const setUserProfile = createAction(SET_USER_PROFILE)
+export const setUserProfileError = createAction(SET_USER_PROFILE_ERROR)
 
 // allProfiles
 // async

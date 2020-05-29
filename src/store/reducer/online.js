@@ -1,4 +1,4 @@
-import {isBoolean} from '../../lib/predicate.js'
+import {isBoolean} from '../../lib/util.js'
 
 export default  (state=true, {type, payload}) => {
   if(!isBoolean(payload))

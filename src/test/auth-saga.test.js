@@ -87,7 +87,6 @@ describe('auth-saga',  () => {
     })
     await gen.next().value
       .then((e) => {
-        console.log('stat', e.status)
         return Promise.reject('failed')
       })
       .catch(e => {
