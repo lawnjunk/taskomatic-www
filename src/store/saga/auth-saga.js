@@ -7,7 +7,6 @@ import {API_URL} from '@env'
 import  {
   setToken, 
   setAuthError,
-  setUpdatePasswordSuccess,
   SIGNUP_REQUEST,
   LOGIN_REQUEST,
   UPDATE_PASSWORD_REQUEST,
@@ -40,8 +39,8 @@ export const doUpdatePasswordRequest = function* ({token, password}) {
     const res = yield request.put(authURL)
       .set('Authorization', 'Bearer ' + token)
       .send({password})
-    // TODO: is true enough data for the UI?
-    yield put(setUpdatePasswordSuccess(true))
+    // TODO: set state if works
+    yield put(setAuthError(null))
   } catch (e) {
     yield put(setAuthError(e))
   }

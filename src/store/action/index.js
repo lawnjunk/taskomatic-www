@@ -48,7 +48,9 @@ export const FETCH_ALL_PROFILES_REQUEST = 'FETCH_ALL_PROFILES_REQUEST'
 export const fetchAllProfilesRequest = createAction(FETCH_ALL_PROFILES_REQUEST)
 //sync
 export const SET_ALL_PROFILES = 'SET_ALL_PROFILES'
-export const setAllProfiles= createAction(SET_ALL_PROFILES)
+export const SET_ALL_PROFILES_ERROR = 'SET_ALL_PROFILES_ERROR'
+export const setAllProfiles = createAction(SET_ALL_PROFILES)
+export const setAllProfilesError = createAction(SET_ALL_PROFILES_ERROR)
 
 // tasks
 // ### fetchTasks
@@ -77,3 +79,14 @@ export const updateTaskRequest= createAction(UPDATE_TASK_REQUEST)
 export const UPDATE_TASK = 'UPDATE_TASK'
 export const updateTask = createAction(UPDATE_TASK)
 
+// ### deleteTask
+// async
+export const DELETE_TASK_REQUEST = 'DELETE_TASK_REQUEST'
+export const deleteTaskRequest= createAction(DELETE_TASK_REQUEST)
+// sync
+export const DELETE_TASK = 'DELETE_TASK'
+export const deleteTask = createAction(DELETE_TASK)
+
+// RESET
+export const RESET = 'RESET'
+export const reset = createAction(RESET)

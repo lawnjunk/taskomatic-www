@@ -13,4 +13,4 @@ export const isMap = (data) => data instanceof Map
 export const isError = (data) => data instanceof Error
 export const isPromise = (data) => data instanceof Promise
 export const isEmail = (data) => isString(data) && new RegExp(/\S+@\S+\.\S+/).test(data)
-
+export const isStateError = (data) => isNull(data) || isError(data)

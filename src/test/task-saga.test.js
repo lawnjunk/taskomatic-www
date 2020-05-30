@@ -8,7 +8,7 @@ import {
   doFetchTasksRequest,
   doCreateTaskRequest,
   doUpdateTaskRequest,
-} from '../store/saga/task.js'
+} from '../store/saga/task-saga.js'
 
 describe('task-saga', () => {
   test('doFetchTasksRequest',  async () => {

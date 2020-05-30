@@ -7,7 +7,7 @@ import {
   doFetchUserProfileRequest,
   doFetchAllProfilesRequest,
   doUpdateUserProfileRequest,
-} from '../store/saga/profile.js'
+} from '../store/saga/profile-saga.js'
 
 describe('profile sagas',  () => {
   test('doFetchUserProfile', async () => {

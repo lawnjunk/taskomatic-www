@@ -1,29 +1,14 @@
 import {createStore} from 'redux'
 
-import {
+import auth, {
   updatePasswordSuccess,
   authError,
   token,
-  auth,
-} from '../store/reducer/auth.js'
+} from '../store/reducer/auth-reducer.js'
 
 import * as action from '../store/action'
 
 describe('auth reducer', () => {
-  test('updatePasswordSuccess', () => {
-    let store = createStore(updatePasswordSuccess)
-    expect(store.getState()).toBeTruthy()
-    store.dispatch(action.setUpdatePasswordSuccess(false))
-    expect(store.getState()).toBeFalsy()
-
-    try {
-      store.dispatch(action.setUpdatePasswordSuccess("false"))
-      throw new Error('failed')
-    } catch (e) {
-      expect(e.message).toBe('Error: VALIDATION_ERROR for SET_UPDATE_PASSWORD_SUCCESS')
-    }
-  })
-
   test('token', () => {
     let store = createStore(token)
     expect(store.getState()).toBeNull()
@@ -58,7 +43,6 @@ describe('auth reducer', () => {
     expect(store.getState()).toEqual({
       token: null,
       authError: null,
-      updatePasswordSuccess: true,
     })
   })
 })

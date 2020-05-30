@@ -7,7 +7,7 @@ import {
   doSignupRequest,
   doLoginRequest,
   doUpdatePasswordRequest,
-} from '../store/saga/auth.js'
+} from '../store/saga/auth-saga.js'
 
 let mock = {
   username: 'slugbyte', 
@@ -66,7 +66,7 @@ describe('auth-saga',  () => {
     let res = await gen.next().value
     expect(res.status).toBe(200)
     let result = await gen.next().value
-    expect(result).toEqual(put(action.setUpdatePasswordSuccess(true)))
+    expect(result).toEqual(put(action.setAuthError(null)))
   })
 
   test('ERROR doUpdatePasswordRequest', async () => {

@@ -1,8 +1,9 @@
+// external deps
 import {combineReducers} from 'redux'
-import assert from 'assert'
 
+// internal modules
 import {createReducer, validate} from '../../lib/create-reducer.js'
-import {isBoolean, isError, isString} from '../../lib/util.js'
+import {isBoolean, isStateError, isString} from '../../lib/util.js'
 
 
 import {
@@ -12,24 +13,23 @@ import {
   SET_UPDATE_PASSWORD_SUCCESS,
 } from '../action'
   
-export const authError = createReducer(SET_AUTH_ERROR, null, isError)
-export const updatePasswordSuccess = createReducer(SET_UPDATE_PASSWORD_SUCCESS, true, isBoolean)
-
-export const token = (state=null, {type, payload}) => {
+const defaultState = null
+export const token = (state=defaultState, {type, payload}) => {
   switch(type){
     case SET_TOKEN:
       validate(SET_TOKEN, payload, isString)
       return payload
     case SET_LOGOUT:
     case 'RESET':
-      return null
+      return defaultState
     default:
       return state
   }
 }
 
-export const auth = combineReducers({
-  updatePasswordSuccess,
+export const authError = createReducer(SET_AUTH_ERROR, null, isStateError)
+
+export default combineReducers({
   authError,
   token,
 })
