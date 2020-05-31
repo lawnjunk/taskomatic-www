@@ -7,8 +7,8 @@ export const createAction = (type) => (payload) => {
 // Network state
 export const ONLINE = 'ONLINE'
 export const OFFLINE = 'OFFLINE'
-export const online = createAction(online)
-export const offline = createAction(offline)
+export const online = createAction(ONLINE)
+export const offline = createAction(OFFLINE)
 
 // auth
 // async

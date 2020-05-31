@@ -1,3 +1,5 @@
+import assert from 'assert'
+
 export const isNumber = (data) => typeof data === 'number'
 export const isBoolean = (data) => typeof data === 'boolean'
 export const isString = (data) => typeof data === 'string'
@@ -14,3 +16,6 @@ export const isError = (data) => data instanceof Error
 export const isPromise = (data) => data instanceof Promise
 export const isEmail = (data) => isString(data) && new RegExp(/\S+@\S+\.\S+/).test(data)
 export const isStateError = (data) => isNull(data) || isError(data)
+export const validate = (key, value, predicate) => {
+  assert(predicate(value), new Error('VALIDATION_ERROR for ' + key))
+}
