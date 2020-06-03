@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 import {signupRequest} from '../../store/action'
 
 import {isEmail} from '../../lib/util.js'
@@ -39,10 +40,6 @@ class SignupForm extends React.Component {
     this.state.email = 'hello@world.com'
     this.state.password  = 'helloworld'
     this.state.passwordConfirm  = 'helloworld'
-  }
-
-  componentDidMount = () => {
-    this.validate()
   }
 
 
@@ -127,9 +124,14 @@ class SignupForm extends React.Component {
     //console.log('submit', e)
   }
 
- componentDidUpdate = () => {
-   console.log('STATE UPDATE', this.state)
- }
+  // Life Cycle hooks
+  componentDidMount = () => {
+    this.validate()
+  }
+
+   componentDidUpdate = () => {
+     console.log('STATE UPDATE', this.state)
+   }
 
   render = () =>  {
     return (
@@ -175,11 +177,8 @@ class SignupForm extends React.Component {
   }
 }
 
-export const mapStateToProps = (state) => ({
-})
 
-export const mapDispatchToProps = (dispatch) => ({
-  signupRequest: (data) => dispatch(signupRequest(data)),
-})
+export const mapDispatchToProps = (dispatch) => 
+  bindActionCreators({signupRequest}, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignupForm)
+export default connect(null, mapDispatchToProps)(SignupForm)

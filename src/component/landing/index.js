@@ -4,6 +4,7 @@ import {Redirect} from 'react-router-dom'
 
 import * as action from '../../store/action'
 import SignupForm from '../signup-form'
+import LoginForm from '../login-form'
 
 class Landing extends React.Component {
   constructor(props){
@@ -14,10 +15,11 @@ class Landing extends React.Component {
     console.log('this.prpps', this.props)
     return (
       <main className='landing-container'>
-      {!!this.props.token ? <Redirect to='/dashboard' push={true} from='/' />: <p> hello </p>}
+      {!!this.props.token ? <Redirect to='/dashboard' from='/' />: <p> hello </p>}
       <div className='onboarding'>
         <section className='auth-form-container'>
-          <SignupForm/>
+          <SignupForm />
+          <LoginForm />
         </section>
       </div>
       <div className='demo'>
