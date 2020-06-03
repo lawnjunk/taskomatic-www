@@ -9,6 +9,7 @@ import {
   FETCH_TASKS_REQUEST,
   CREATE_TASK_REQUEST,
   UPDATE_TASK_REQUEST,
+  DELETE_TASK_REQUEST,
 } from '../action'
 
 export const doFetchTasksRequest = function* ({token}) {
@@ -43,6 +44,16 @@ export const doUpdateTaskRequest = function* ({token, task}) {
   }
 }
 
+export const doDeleteTaskRequest = function* ({token, task}) {
+  try {
+    const {body} = yield request.delete(`${API_URL}/task/${task.id}`)
+      .set('Authorization', 'Bearer ' + token)
+    yield put(updateTask(body))
+  } catch (e) {
+    yield put(setTasksError(e))
+  }
+}
+
 export const spawnFetchTasksRequset = function* (){
   yield takeEvery(FETCH_TASKS_REQUEST, doFetchTasksRequest)
 }
@@ -55,3 +66,7 @@ export const spawnUpdateTaskRequest = function* (){
   yield takeEvery(UPDATE_TASK_REQUEST, doUpdateTaskRequest)
 }
 
+
+export const spawnDeleteTaskRequest = function*(){
+  yield takeEvery(DELETE_TASK_REQUEST, doDeleteTaskRequest)
+}

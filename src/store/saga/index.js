@@ -1,11 +1,40 @@
 import {all} from 'redux-saga/effects'
 
 import {
-  spawnSignupRequest 
-} from './auth.js'
+  spawnSignupRequest, 
+  spawnLoginRequest,
+  spawnUpdatePasswordSuccess,
+} from './auth-saga.js'
 
-export default function* root(){
+import {
+  spawnFetchAllProfilesRequest,
+  spawnFetchUserProfileRequest,
+  spawnUpdateUserProfileRequest,
+} from './profile-saga.js'
+
+
+import {
+  spawnFetchTasksRequset,
+  spawnCreateTaskRequest,
+  spawnUpdateTaskRequest,
+  spawnDeleteTaskRequest,
+} from './task-saga.js'
+
+export default function* rootSaga(){
+  console.log('rootSaga')
   yield all([
-    spawnSignupRequest,
+    // auth-saga
+    spawnSignupRequest(),
+    spawnLoginRequest(),
+    spawnUpdatePasswordSuccess(),
+    // profile-saga
+    spawnFetchAllProfilesRequest(),
+    spawnFetchUserProfileRequest(),
+    spawnUpdateUserProfileRequest(),
+    // task
+    spawnFetchTasksRequset(),
+    spawnCreateTaskRequest(),
+    spawnUpdateTaskRequest(),
+    spawnDeleteTaskRequest(),
   ])
 }

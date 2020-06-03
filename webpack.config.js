@@ -29,12 +29,13 @@ const productionPlugins = developmentPlugins.concat([
 module.exports = {
   plugins: production ? productionPlugins : developmentPlugins,
   entry: `${__dirname}/src/main.js`,
-  devServer: {
-    hot: true,
-    inline: true,
-    liveReload: true,
-    historyApiFallback: true,
-  },
+  //devServer: {
+    //hot: true,
+    //inline: true,
+    //hotOnly: true,
+    //liveReload: true,
+    //historyApiFallback: true,
+  //},
   devtool: production ? undefined : 'cheap-module-eval-source-map',
   output: {
     path: `${__dirname}/build`,

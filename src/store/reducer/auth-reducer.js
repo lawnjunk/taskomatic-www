@@ -7,9 +7,9 @@ import {isBoolean, isStateError, isString} from '../../lib/util.js'
 
 
 import {
+  LOGOUT,
   SET_AUTH_ERROR,
   SET_TOKEN,
-  SET_LOGOUT,
   SET_UPDATE_PASSWORD_SUCCESS,
 } from '../action'
   
@@ -19,7 +19,7 @@ export const token = (state=defaultState, {type, payload}) => {
     case SET_TOKEN:
       validate(SET_TOKEN, payload, isString)
       return payload
-    case SET_LOGOUT:
+    case LOGOUT:
     case 'RESET':
       return defaultState
     default:

@@ -16,9 +16,9 @@ import  {
 const authURL = API_URL + '/auth'
 
 // interface
-export const doSignupRequest = function* (userData){
+export const doSignupRequest = function* ({payload:user}){
   try {
-    const res = yield request.post(authURL).send(userData)
+    const res = yield request.post(authURL).send(user)
     yield put(setToken(res.body.token))
   } catch (e) {
     yield put(setAuthError(e))

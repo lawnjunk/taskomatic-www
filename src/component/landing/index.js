@@ -1,13 +1,42 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
+
+import * as action from '../../store/action'
+import SignupForm from '../signup-form'
 
 class Landing extends React.Component {
+  constructor(props){
+    super(props)
+  }
+
   render = () => {
+    console.log('this.prpps', this.props)
     return (
       <main className='landing-container'>
-        <h2>Landing</h2>
+      {!!this.props.token ? <Redirect to='/dashboard' push={true} from='/' />: <p> hello </p>}
+      <div className='onboarding'>
+        <section className='auth-form-container'>
+          <SignupForm/>
+        </section>
+      </div>
+      <div className='demo'>
+      </div>
       </main>
     )
   }
 }
 
-export default Landing
+export const mapStateToProps = (state) => ({
+  token: state.auth.token,
+})
+
+export const mapDispatchToProps = (dispatch) => ({
+  login: (credentials) => dispatch(action.loginRequest(credentials)),
+  signup: (credentials) => dispatch(action.signupRequest(credentials)),
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Landing)
