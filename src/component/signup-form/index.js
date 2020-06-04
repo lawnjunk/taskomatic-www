@@ -34,12 +34,12 @@ class SignupForm extends React.Component {
       valid: false,
     }
 
-    this.state.firstName= 'hello'
-    this.state.lastName = 'world'
-    this.state.username = 'helloworld'
-    this.state.email = 'hello@world.com'
-    this.state.password  = 'helloworld'
-    this.state.passwordConfirm  = 'helloworld'
+    //this.state.firstName= 'hello'
+    //this.state.lastName = 'world'
+    //this.state.username = 'helloworld'
+    //this.state.email = 'hello@world.com'
+    //this.state.password  = 'helloworld'
+    //this.state.passwordConfirm  = 'helloworld'
   }
 
 

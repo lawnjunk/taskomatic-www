@@ -26,8 +26,8 @@ class LoginForm extends React.Component {
       valid: false,
     }
 
-    this.state.email = 'hello@world.com'
-    this.state.password = 'helloworld'
+    //this.state.email = 'hello@world.com'
+    //this.state.password = 'helloworld'
   }
 
   // instance methods
