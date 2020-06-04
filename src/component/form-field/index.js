@@ -2,7 +2,6 @@ import React from 'react'
 
 const FormField = ({name, placeholder, form, type='text'}) => {
   let showWarning = !!(form.state.formSumbitted || form.state[name + 'Dirty'])
-  console.log({showWarning, name})
   return (
     <div className='field'>
       <div className='warning'>
@@ -13,6 +12,7 @@ const FormField = ({name, placeholder, form, type='text'}) => {
         type={type}
         placeholder={placeholder}
         value={form.state[name]}
+        checked={!!form.state[name]}
         onChange={form.handleChange}
         />
     </div>

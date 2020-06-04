@@ -2,9 +2,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {loginRequest} from '../../store/action'
 
 // internal mods
+import {loginRequest} from '../../store/action'
 import {isEmail} from '../../lib/util.js'
 
 // internal components
@@ -78,20 +78,13 @@ class LoginForm extends React.Component {
         formSumbitted: true,
         formErrorMessage: 'Please fix all fields with warning labels'
       })
-    let result = this.props.loginRequest(this.state)
-    console.log({result})
-    //console.log('submit', e)
+    this.props.loginRequest(this.state)
   }
 
   // life cycle hooks
   componentDidMount = () => {
     this.validate()
   }
-
-  componentDidUpdate = () => {
-    console.log('STATE UPDATE', this.state)
-  }
-
   render = () =>  {
     return (
       <form className='signup-form' onSubmit={this.handleSubmit}>
@@ -117,8 +110,6 @@ class LoginForm extends React.Component {
 
 export const mapDispatchToProps = (dispatch) => 
   bindActionCreators({loginRequest}, dispatch)
-
-//console.log('hahah', mapDispatchToProps())
 
 export default connect(null,  mapDispatchToProps)(LoginForm)
 

@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux'
 
 import {createReducer} from '../../lib/create-reducer.js'
-import {validate, isString, isBoolean, isArray, isStateError} from '../../lib/util.js'
+import {validate, isEmpty, isString, isBoolean, isArray, isStateError} from '../../lib/util.js'
 import {List, Map} from 'immutable'
 
 import {
@@ -14,6 +14,8 @@ import {
 } from '../action'
 
 export const isTask = (data) => {
+  if(isEmpty(data))
+    return false
   if(!isString(data.id)) return false
   if(!isString(data.userID)) return false
   if(!isString(data.description)) return false
@@ -30,7 +32,6 @@ export const isTaskList = (data) => {
 
 let listDefaultState = List()
 export const dataReducer = (state=listDefaultState, {type, payload}) => {
-  //onsole.log({type, payload})
   switch(type){
     case SET_TASKS:
       validate(SET_TASKS, payload, isTaskList) 

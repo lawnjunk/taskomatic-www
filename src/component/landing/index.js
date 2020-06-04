@@ -12,7 +12,6 @@ class Landing extends React.Component {
   }
 
   render = () => {
-    console.log('this.prpps', this.props)
     return (
       <main className='landing-container'>
       {!!this.props.token ? <Redirect to='/dashboard' from='/' />: <p> hello </p>}

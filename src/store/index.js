@@ -12,7 +12,6 @@ import defaultReducer from './reducer'
 
 // interface
 export default (reducer=defaultReducer) => {
-  console.log('create store')
   // make saga middleware
   let sagaMiddleware = createSaga()
 

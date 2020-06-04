@@ -21,7 +21,6 @@ import {
 } from './task-saga.js'
 
 export default function* rootSaga(){
-  console.log('rootSaga')
   yield all([
     // auth-saga
     spawnSignupRequest(),

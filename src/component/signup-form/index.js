@@ -119,19 +119,13 @@ class SignupForm extends React.Component {
         formSumbitted: true,
         formErrorMessage: 'Please fix all fields with warning labels'
       })
-    let result = this.props.signupRequest(this.state)
-    console.log({result})
-    //console.log('submit', e)
+    this.props.signupRequest(this.state)
   }
 
   // Life Cycle hooks
   componentDidMount = () => {
     this.validate()
   }
-
-   componentDidUpdate = () => {
-     console.log('STATE UPDATE', this.state)
-   }
 
   render = () =>  {
     return (
